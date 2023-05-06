@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Transaction set",
+  "type": "array",
+  "items": {
+    "title": "Transaction",
+    "type": "object",
+    "properties": {
+      "type": {
+        "type": "string"
+      },
+      "date": {
+        "type": "integer"
+      },
+      "accountNumber": {
+        "type": "string"
+      },
+      "currency": {
+        "type": "string"
+      },
+      "merchantName": {
+        "type": "string"
+      },
+      "amount": {
+        "type": "integer"
+      },
+      "merchantLogo": {
+        "type": "string"
+      }
+    },
+    "required": ["type", "date", "accountNumber", "currency", "merchantLogo", "merchantName", "amount"]
+  }
+}

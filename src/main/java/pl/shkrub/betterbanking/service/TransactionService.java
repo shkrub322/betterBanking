@@ -12,9 +12,33 @@ public class TransactionService {
 
   public Collection<Transaction> findAllByAccountNumber(String accountNumber) {
     return Set.of(
-        Transaction.builder().accountNumber(accountNumber).amount(1).currency("USD").build(),
-        Transaction.builder().accountNumber(accountNumber).amount(2).currency("USD").build(),
-        Transaction.builder().accountNumber(accountNumber).amount(3).currency("USD").build()
+        Transaction.builder()
+            .type("withdraw")
+            .date(System.currentTimeMillis())
+            .accountNumber(accountNumber)
+            .amount(1)
+            .currency("USD")
+            .merchantName("merchantName")
+            .merchantLogo("merchantLogo")
+            .build(),
+        Transaction.builder()
+            .type("deposit")
+            .date(System.currentTimeMillis())
+            .accountNumber(accountNumber)
+            .amount(2)
+            .currency("USD")
+            .merchantName("merchantName")
+            .merchantLogo("merchantLogo")
+            .build(),
+        Transaction.builder()
+            .type("withdraw")
+            .date(System.currentTimeMillis())
+            .accountNumber(accountNumber)
+            .amount(3)
+            .currency("USD")
+            .merchantName("merchantName")
+            .merchantLogo("merchantLogo")
+            .build()
     );
   }
 
