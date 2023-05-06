@@ -1,8 +1,9 @@
 package pl.shkrub.betterbanking.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Collection;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import pl.shkrub.betterbanking.domain.data.Transaction;
@@ -14,7 +15,7 @@ class TransactionServiceTest {
   @Test
   public void itFindsAllProductsByAccountNumber() {
     Collection<Transaction> actual = transactionService.findAllByAccountNumber("accountNumber");
-    Assertions.assertThat(actual).hasSize(3);
+    assertThat(actual).hasSize(3);
   }
 
 }
