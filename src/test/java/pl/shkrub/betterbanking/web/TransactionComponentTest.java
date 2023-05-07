@@ -17,8 +17,8 @@ public class TransactionComponentTest {
 
   @Test
   public void findAllByAccountNumber() {
-    final String accountNumber = "accountNumber";
-    final String findAllByAccountNumberPath = PATH + "/%s";
+    final int accountNumber = 1;
+    final String findAllByAccountNumberPath = PATH + "/%d";
 
     JsonSchemaFactory jsonSchemaFactory =
         JsonSchemaFactory.newBuilder()
