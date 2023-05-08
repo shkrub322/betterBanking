@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.shkrub.betterbanking.domain.dto.TransactionDto;
 import pl.shkrub.betterbanking.service.TransactionService;
 
-@RequestMapping("/transactions")
+@RequestMapping("/v1/transactions")
 @RestController
 public class TransactionController {
 

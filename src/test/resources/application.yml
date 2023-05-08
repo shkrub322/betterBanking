@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+    url: jdbc:tc:mysql://localhost:3306/better_banking?TC_INITSCRIPT=init_mysql.sql
+  jpa:
+    hibernate:
+      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+local:
+  server:
+    port: 8080
