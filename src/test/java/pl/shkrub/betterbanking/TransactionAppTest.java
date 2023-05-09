@@ -29,7 +29,7 @@ public class TransactionAppTest {
   @Autowired
   private TransactionController transactionController;
 
-  private static final String PATH = "/v1/transactions";
+  private static final String PATH = "/api/v1/transactions";
 
   @Test
   public void findAllByAccountNumber() {

@@ -19,7 +19,7 @@ import pl.shkrub.betterbanking.BetterBankingApplication;
 @AutoConfigureMockMvc
 public class TransactionControllerIntegrationTest {
 
-  private static final String PATH = "/v1/transactions";
+  private static final String PATH = "/api/v1/transactions";
 
   @Autowired
   private MockMvc mockMvc;
