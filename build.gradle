@@ -2,6 +2,7 @@ plugins {
   id 'java'
   id 'org.springframework.boot' version '3.0.6'
   id 'io.spring.dependency-management' version '1.1.0'
+  id "org.openapi.generator" version "${openApiVersion}"
 }
 
 group = 'pl.shkrub'
@@ -18,8 +19,13 @@ dependencies {
   implementation "org.springframework.boot:spring-boot-starter-data-jpa"
   implementation "mysql:mysql-connector-java:${mysqlConnectorVersion}"
   implementation platform("org.testcontainers:testcontainers-bom:${testcontainerVersion}")
+  implementation "io.springfox:springfox-swagger2:${springfoxSwaggerVersion}"
+  implementation "io.springfox:springfox-swagger-ui:${springfoxSwaggerVersion}"
+  implementation "org.openapitools:jackson-databind-nullable:0.2.6"
+
   compileOnly "org.projectlombok:lombok"
   annotationProcessor "org.projectlombok:lombok"
+
   testImplementation "io.rest-assured:spring-mock-mvc:${restAssuredVersion}"
   testImplementation "io.rest-assured:json-schema-validator:${restAssuredVersion}"
   testImplementation "org.springframework.boot:spring-boot-starter-test"
@@ -29,4 +35,33 @@ dependencies {
 
 tasks.named('test') {
   useJUnitPlatform()
+}
+
+tasks.register("copyModelFromBuildToSrc", Copy) {
+  from layout.buildDirectory.dir("generated/src/main/java/com/acme/banking/model")
+  into "src/main/java/com/acme/banking/model"
+}
+
+openApiGenerate {
+  generatorName = "spring"
+  inputSpec = "$rootDir/open-api/account-info-openapi.yaml".toString()
+  outputDir = "$buildDir/generated".toString()
+  apiPackage = "com.acme.banking.api"
+  modelPackage = "com.acme.banking.model"
+  invokerPackage = "com.acme.banking.invoker"
+  configOptions = [
+      basePackage: "com.acme.banking",
+      interfaceOnly: "true"
+  ]
+}
+
+compileJava.dependsOn tasks.openApiGenerate
+
+tasks.register("deleteModelFromSrc", Delete) {
+  delete "src/main/java/com/"
+  followSymlinks true
+}
+
+clean {
+  dependsOn deleteModelFromSrc
 }
