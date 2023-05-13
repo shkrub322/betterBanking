@@ -32,7 +32,7 @@ public class TransactionControllerIntegrationTest {
     mockMvc.perform(get(String.format(findAllByAccountNumber, accountNumber)))
         .andExpect(status().isOk())
         .andExpect(content().contentType(APPLICATION_JSON))
-        .andExpect(jsonPath("$", hasSize(0)));
+        .andExpect(jsonPath("$", hasSize(3)));
   }
 
 }

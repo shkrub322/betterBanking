@@ -1,4 +1,4 @@
-package pl.shkrub.betterbanking.adapter;
+package pl.shkrub.betterbanking.adapter.acme;
 
 import java.time.OffsetDateTime;
 
