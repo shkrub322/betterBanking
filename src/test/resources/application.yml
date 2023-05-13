@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: test
   datasource:
     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
     url: jdbc:tc:mysql://localhost:3306/better_banking?TC_INITSCRIPT=init_mysql.sql

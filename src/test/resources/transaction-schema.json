@@ -10,7 +10,27 @@
         "type": "string"
       },
       "date": {
-        "type": "integer"
+        "type": "array",
+        "items": [
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          },
+          {
+            "type": "integer"
+          }
+        ]
       },
       "accountNumber": {
         "type": "integer"

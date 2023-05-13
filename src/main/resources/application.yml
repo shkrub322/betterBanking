@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: dev
   datasource:
     password: ${DB_PASS}
     username: ${DB_USER}

@@ -1,4 +1,4 @@
-package pl.shkrub.betterbanking.adapter;
+package pl.shkrub.betterbanking.adapter.acme;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

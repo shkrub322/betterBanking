@@ -17,7 +17,7 @@ class TransactionServiceTest {
   @Test
   public void itFindsAllProductsByAccountNumber() {
     final int accountNumber = 1;
-    assertThat(transactionService.findAllByAccountNumber(accountNumber)).isEmpty();
+    assertThat(transactionService.findAllByAccountNumber(accountNumber)).hasSize(3);
   }
 
 }
