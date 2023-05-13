@@ -9,3 +9,8 @@ spring:
 local:
   server:
     port: 8080
+
+io:
+  betterbanking:
+    integration:
+      url-base: http://localhost:8080

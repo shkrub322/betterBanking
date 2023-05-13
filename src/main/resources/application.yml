@@ -7,3 +7,7 @@ spring:
   jpa:
     hibernate:
       naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+io:
+  betterbanking:
+    integration:
+      url-base: http://localhost:8080

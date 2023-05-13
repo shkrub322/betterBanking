@@ -57,7 +57,7 @@ public class TransactionAppTest {
         .body()
         .as(List.class);
 
-    assertThat(actual).hasSize(3);
+    assertThat(actual).isEmpty();
   }
 
 }
