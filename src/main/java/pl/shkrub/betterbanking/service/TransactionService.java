@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import pl.shkrub.betterbanking.api.impl.RESTTransactionsAPIClient;
+import pl.shkrub.betterbanking.api.TransactionApiClient;
 import pl.shkrub.betterbanking.domain.data.Transaction;
 import pl.shkrub.betterbanking.domain.dto.TransactionDto;
 import pl.shkrub.betterbanking.mapper.TransactionMapper;
@@ -20,12 +20,12 @@ public class TransactionService {
 
   private static final Logger LOG = LoggerFactory.getLogger(TransactionService.class);
 
-  private final RESTTransactionsAPIClient restTransactionsAPIClient;
+  private final TransactionApiClient restTransactionsAPIClient;
   private final TransactionMapper transactionMapper;
   private final MerchantDetailsRepository merchantDetailsRepository;
   private final TransactionRepository transactionRepository;
 
-  public TransactionService(RESTTransactionsAPIClient restTransactionsAPIClient,
+  public TransactionService(TransactionApiClient restTransactionsAPIClient,
                             TransactionMapper transactionMapper,
                             MerchantDetailsRepository merchantDetailsRepository,
                             TransactionRepository transactionRepository) {

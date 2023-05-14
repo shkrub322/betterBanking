@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
 @Table(name = "transaction")
 public class Transaction {
 
