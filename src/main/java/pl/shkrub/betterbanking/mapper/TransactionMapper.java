@@ -2,6 +2,7 @@ package pl.shkrub.betterbanking.mapper;
 
 import java.time.ZoneOffset;
 import java.util.Collection;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -18,10 +19,12 @@ public class TransactionMapper {
   }
 
   private TransactionDto fromData(Transaction transaction) {
+    long date = Objects.isNull(transaction.getDate()) ? 0L :
+        transaction.getDate().atZone(ZoneOffset.UTC).toInstant().toEpochMilli();
     return TransactionDto.builder()
         .accountNumber(transaction.getAccountNumber())
         .type(transaction.getType())
-        .date(transaction.getDate().atZone(ZoneOffset.UTC).toInstant().toEpochMilli())
+        .date(date)
         .merchantLogo(transaction.getMerchantLogo())
         .merchantName(transaction.getMerchantName())
         .amount(transaction.getAmount())
